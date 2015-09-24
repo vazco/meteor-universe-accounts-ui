@@ -2,6 +2,10 @@
 
 import LoginForm from './LoginForm';
 import LoggedIn from './LoggedIn';
+import i18n from '{universe:i18n}';
+
+//instance of translate component in "accounts-ui" namespace
+const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
     displayName: 'LoginBox',
@@ -24,7 +28,7 @@ export default React.createClass({
             <div>
                 <div className="ui large top attached segment">
 
-                    <h2 className="ui center aligned dividing header">Sign In</h2>
+                    <h2 className="ui center aligned dividing header"><T>sign_in</T></h2>
 
                     <LoginForm />
                 </div>
@@ -36,10 +40,10 @@ export default React.createClass({
                         <div className="content">
                             <ul className="list">
                                 {this.props.registerLink ?
-                                    <li>Don't have an account? <a href={this.props.registerLink}>Register here.</a></li>
+                                    <li><T>dont_have_an_account</T><a href={this.props.registerLink}><T>register_here</T></a></li>
                                     : ''}
                                 {this.props.resetLink ?
-                                    <li>Forgot your password? <a href={this.props.resetLink}>Click to reset.</a></li>
+                                    <li><T>forgot_your_password</T><a href={this.props.resetLink}><T>click_to_reset</T></a></li>
                                     : ''}
                             </ul>
                         </div>

@@ -10,6 +10,7 @@ Package.onUse(function (api) {
 
     api.use([
         'universe:modules',
+        'universe:i18n',
         'react-meteor-data',
         'service-configuration',
         'accounts-base'
@@ -36,6 +37,8 @@ Package.onUse(function (api) {
         'components/RegisterBox.import.jsx',
         'components/RegisterForm.import.jsx',
         'components/ResetPasswordBox.import.jsx',
+        'i18n/en.i18n.json',
+        'i18n/ru.i18n.json',
         'main.import.jsx',
         'system.js'
     ]);

@@ -1,6 +1,10 @@
 import utils from '../utils';
 import OAuthButton from './OAuthButton';
 import PasswordForm from './PasswordForm';
+import i18n from '{universe:i18n}';
+
+//instance of translate component in "accounts-ui" namespace
+const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
     displayName: 'RegisterForm',
@@ -14,7 +18,7 @@ export default React.createClass({
                         return (
                             <OAuthButton
                                 service={service}
-                                text={`Sign up with ${utils.capitalize(service)}`}
+                                text={`${i18n.__('accounts-ui', 'sign_up_with')} ${utils.capitalize(service)}`}
                                 key={service}
                                 />
                         );
@@ -22,7 +26,7 @@ export default React.createClass({
                 </div>
 
                 {services.length > 0 && utils.hasPasswordService() ?
-                    <div className="ui horizontal divider">Sign up with Email</div> : ''
+                    <div className="ui horizontal divider"><T>sign_up_with_email</T></div> : ''
                 }
 
                 {utils.hasPasswordService() ?
