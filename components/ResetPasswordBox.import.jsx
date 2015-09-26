@@ -1,6 +1,10 @@
 /*global ReactMeteorData */
 
 import LoggedIn from './LoggedIn';
+import i18n from '{universe:i18n}';
+
+//instance of translate component in "accounts-ui" namespace
+const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
     displayName: 'ResetPasswordBox',
@@ -26,7 +30,7 @@ export default React.createClass({
         let email = this.refs.email.getDOMNode().value;
 
         if (!email) {
-            this.setState({error: 'You need to provide email'});
+            this.setState({error: i18n.__('accounts-ui', 'you_need_to_provide_email')});
             return;
         }
 
@@ -59,9 +63,10 @@ export default React.createClass({
         if (this.state.emailSent) {
             return (
                 <div className="ui large top attached segment">
-                    <h2 className="ui center aligned dividing header">Email sent</h2>
+                    <h2 className="ui center aligned dividing header"><T>email_sent</T></h2>
 
-                    <p>Check your inbox for further instructions</p>
+                    <T>check_your_inbox_for_further_instructions</T>
+                    {/*<p>Check your inbox for further instructions</p>*/}
                 </div>
             );
         }
@@ -70,18 +75,18 @@ export default React.createClass({
             <div>
                 <div className="ui large top attached segment">
 
-                    <h2 className="ui center aligned dividing header">Reset password</h2>
+                    <h2 className="ui center aligned dividing header"><T>reset_password</T></h2>
 
                     <form onSubmit={this.handleSubmit}
                           className={'ui form' + (this.state.loading ? ' loading' : '')}
                           ref="form">
 
                         <div className="required field">
-                            <label>Your Email</label>
+                            <label><T>your_email</T></label>
 
                             <div className="ui fluid input">
                                 <input type="email"
-                                       placeholder="Email"
+                                       placeholder={i18n.__('accounts-ui', 'email')}
                                        ref="email"
                                     />
                             </div>
@@ -94,7 +99,7 @@ export default React.createClass({
 
                         <button type="submit"
                                 className="ui fluid large primary button">
-                            Send reset link
+                            <T>send_reset_link</T>
                         </button>
                     </form>
                 </div>
@@ -102,7 +107,8 @@ export default React.createClass({
                 {this.props.registerLink ?
                     <div className="ui bottom attached info message">
                         <i className="user icon"></i>
-                        Don't have an account? <a href={this.props.registerLink}>Register here.</a>
+                        <T>dont_have_an_account</T>
+                        <a href={this.props.registerLink}><T>register_here</T></a>
                     </div>
                     : ''}
             </div>

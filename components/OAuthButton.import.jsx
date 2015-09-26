@@ -1,4 +1,8 @@
 import utils from '../utils';
+import i18n from '{universe:i18n}';
+
+//instance of translate component in "accounts-ui" namespace
+const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
     displayName: 'OAuthButton',
@@ -45,7 +49,8 @@ export default React.createClass({
             return (
                 <button
                     className={`ui fluid button ${service} loading`}
-                    style={{marginBottom: 10}}> Loading
+                    style={{marginBottom: 10}}>
+                    <T>loading</T>
                 </button>
             );
         }
