@@ -1,12 +1,12 @@
 Package.describe({
     name: 'universe:accounts-ui',
-    version: '0.0.1',
+    version: '0.1.0',
     summary: 'Accounts UI replacement for Universe using React and Semantic UI',
     documentation: 'README.md'
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('1.1.0.3');
+    api.versionsFrom('1.2.0.2');
 
     api.use([
         'universe:modules',
@@ -39,7 +39,6 @@ Package.onUse(function (api) {
         'components/ResetPasswordBox.import.jsx',
         'i18n/en.i18n.json',
         'i18n/ru.i18n.json',
-        'main.import.jsx',
-        'system.js'
+        'index.import.jsx'
     ]);
 });
