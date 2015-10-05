@@ -12,7 +12,7 @@ Package.onUse(function (api) {
     api.use([
         'universe:modules@0.5.0',
         'universe:i18n@1.1.0',
-        'react-meteor-data',
+        'react-meteor-data@0.1.9',
         'service-configuration',
         'accounts-base'
     ]);
