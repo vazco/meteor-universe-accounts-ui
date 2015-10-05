@@ -9,8 +9,8 @@ Package.onUse(function (api) {
     api.versionsFrom('1.2.0.2');
 
     api.use([
-        'universe:modules',
-        'universe:i18n',
+        'universe:modules@0.5.0',
+        'universe:i18n@1.1.0',
         'react-meteor-data',
         'service-configuration',
         'accounts-base'
