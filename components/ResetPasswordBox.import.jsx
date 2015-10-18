@@ -1,5 +1,6 @@
 /*global ReactMeteorData */
 
+import ErrorMessages from './ErrorMessages';
 import LoggedIn from './LoggedIn';
 import i18n from '{universe:i18n}';
 
@@ -21,7 +22,7 @@ export default React.createClass({
         return {
             loading: false,
             error: null,
-            emailSent: false,
+            emailSent: false
         };
     },
     handleSubmit (e) {
@@ -55,6 +56,13 @@ export default React.createClass({
             });
         });
     },
+    renderErrorMessages() {
+        if (typeof(this.state.error) ===  'string') {
+            let errors = [];
+            errors.push(this.state.error);
+            return <ErrorMessages errors={ errors } />
+        }
+    },
     render () {
         if (this.data.user) {
             return <LoggedIn />;
@@ -64,9 +72,7 @@ export default React.createClass({
             return (
                 <div className="ui large top attached segment">
                     <h2 className="ui center aligned dividing header"><T>email_sent</T></h2>
-
                     <T>check_your_inbox_for_further_instructions</T>
-                    {/*<p>Check your inbox for further instructions</p>*/}
                 </div>
             );
         }
@@ -92,11 +98,6 @@ export default React.createClass({
                             </div>
                         </div>
 
-                        {this.state.error ?
-                            <div className="ui negative message">
-                                <p>{this.state.error}</p>
-                            </div> : ''}
-
                         <button type="submit"
                                 className="ui fluid large primary button">
                             <T>send_reset_link</T>
@@ -105,12 +106,14 @@ export default React.createClass({
                 </div>
 
                 {this.props.registerLink ?
-                    <div className="ui bottom attached info message">
+                    <div className="ui large bottom attached info icon message">
                         <i className="user icon"></i>
                         <T>dont_have_an_account</T>
-                        <a href={this.props.registerLink}><T>register_here</T></a>
+                        <a href={this.props.registerLink}>&nbsp;<T>register_here</T></a>
                     </div>
                     : ''}
+
+                { this.renderErrorMessages() }
             </div>
         );
     }

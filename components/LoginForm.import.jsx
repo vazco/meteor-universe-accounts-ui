@@ -8,8 +8,13 @@ const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
     displayName: 'LoginForm',
+    propTypes: {
+        clearErrors: React.PropTypes.func.isRequired,
+        onError: React.PropTypes.func.isRequired
+    },
     render () {
         let services = utils.getServiceNames();
+        const { clearErrors, onError } = this.props;
         //`Sign in with ${utils.capitalize(service)}`
         return (
             <div className="ui form">
@@ -30,7 +35,11 @@ export default React.createClass({
                 }
 
                 {utils.hasPasswordService() ?
-                    <PasswordForm type="login"/> : ''
+                    <PasswordForm
+                        type="login"
+                        onError={ onError }
+                        clearErrors={ clearErrors }
+                      /> : ''
                 }
 
             </div>

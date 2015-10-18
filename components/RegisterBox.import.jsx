@@ -1,7 +1,9 @@
 /*global ReactMeteorData */
 
+import ErrorMessages from './ErrorMessages';
 import RegisterForm from './RegisterForm';
 import LoggedIn from './LoggedIn';
+import utils from '../utils';
 import i18n from '{universe:i18n}';
 
 //instance of translate component in "accounts-ui" namespace
@@ -18,10 +20,22 @@ export default React.createClass({
             user: Meteor.user()
         };
     },
+    getInitialState () {
+        return {
+            errors: []
+        };
+    },
+    renderErrorMessages() {
+        if (this.state.errors.length) {
+            return <ErrorMessages errors={ this.state.errors } />
+        }
+    },
     render () {
         if (this.data.user) {
             return <LoggedIn />;
         }
+
+        const { clearErrors, onError } = this.props;
 
         return (
             <div>
@@ -31,18 +45,22 @@ export default React.createClass({
                         <T>sign_up</T>
                     </h2>
 
-                    <RegisterForm />
+                    <RegisterForm
+                        onError={ utils.onError.bind(this) }
+                        clearErrors={ utils.clearErrors.bind(this) }
+                        />
 
                 </div>
 
                 {this.props.loginLink ?
-                    <div className="ui bottom attached info message">
+                    <div className="ui large bottom attached info icon message">
                         <i className="user icon"></i>
                         <T>already_have_an_account</T>
-                        <a href={this.props.loginLink}><T>click_to_login</T></a>
+                        <a href={this.props.loginLink}>&nbsp;<T>click_to_login</T></a>
                     </div>
                     : ''}
 
+                { this.renderErrorMessages() }
             </div>
         );
     }

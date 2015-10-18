@@ -20,5 +20,26 @@ export default {
         } catch (e) {
             cb(e);
         }
+    },
+    onError(error) {
+        // todo don't know how to handle situation then "is required" error
+        // was happen and after field was filled other error happens in same
+        // field
+
+        // this is more looks like client-side validation logic. We take
+        // away this part temporary
+        /*let errors = this.state.errors;
+
+         if (~~errors.indexOf(error)) {
+         errors.push(error);
+         this.setState({ errors: errors });
+         }*/
+
+        let errors = [];
+        errors.push(error);
+        this.setState({ errors: errors });
+    },
+    clearErrors() {
+        this.setState({ errors: [] });
     }
 };

@@ -1,8 +1,10 @@
 /*global ReactMeteorData */
 
+import ErrorMessages from './ErrorMessages';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import LoggedIn from './LoggedIn';
+import utils from '../utils';
 import i18n from '{universe:i18n}';
 
 //instance of translate component in "accounts-ui" namespace
@@ -19,6 +21,16 @@ export default React.createClass({
             user: Meteor.user()
         };
     },
+    getInitialState () {
+        return {
+            errors: []
+        };
+    },
+    renderErrorMessages() {
+        if (this.state.errors.length) {
+            return <ErrorMessages errors={ this.state.errors } />
+        }
+    },
     render () {
         if (this.data.user) {
             return <LoggedIn />;
@@ -31,7 +43,10 @@ export default React.createClass({
                         <div className="column">
                             <h2 className="ui center aligned dividing header"><T>sign_in</T></h2>
 
-                            <LoginForm />
+                            <LoginForm
+                              onError={ utils.onError.bind(this) }
+                              clearErrors={ utils.clearErrors.bind(this) }
+                              />
                         </div>
                         <div className="ui vertical divider">
                             <T>or</T>
@@ -39,17 +54,22 @@ export default React.createClass({
                         <div className="column">
                             <h2 className="ui center aligned dividing header"><T>sign_up</T></h2>
 
-                            <RegisterForm />
+                            <RegisterForm
+                                onError={ utils.onError.bind(this) }
+                                clearErrors={ utils.clearErrors.bind(this) }
+                                />
                         </div>
                     </div>
                 </div>
 
                 {this.props.resetLink ?
-                    <div className="ui bottom attached info message">
+                    <div className="ui large bottom attached info icon message">
                         <i className="user icon"></i>
-                        <T>forgot_your_password</T><a href={this.props.resetLink}><T>click_to_reset</T></a>
+                        <T>forgot_your_password</T><a href={this.props.resetLink}>&nbsp;<T>click_to_reset</T></a>
                     </div>
                     : ''}
+
+                { this.renderErrorMessages() }
             </div>
         );
     }
