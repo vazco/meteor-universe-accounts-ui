@@ -28,7 +28,7 @@ export default React.createClass({
     handleSubmit (e) {
         e.preventDefault();
 
-        let email = this.refs.email.getDOMNode().value;
+        let email = this.refs.email.value;
 
         if (!email) {
             this.setState({error: i18n.__('accounts-ui', 'you_need_to_provide_email')});

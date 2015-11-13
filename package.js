@@ -1,17 +1,17 @@
 Package.describe({
     name: 'universe:accounts-ui',
-    version: '0.1.3',
+    version: '0.1.4',
     summary: 'Accounts UI replacement for Universe using React and Semantic UI',
     documentation: 'README.md',
     git: 'https://github.com/vazco/meteor-universe-accounts-ui'
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('1.2.0.2');
+    api.versionsFrom('1.2.1');
 
     api.use([
-        'universe:modules@0.6.0',
-        'universe:i18n@1.1.8',
+        'universe:modules@0.6.1',
+        'universe:i18n@1.2.0',
         'react-meteor-data@0.1.9',
         'service-configuration',
         'accounts-base'
