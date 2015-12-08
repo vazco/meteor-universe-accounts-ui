@@ -1,7 +1,5 @@
 # Universe Accounts UI
 
-### THIS PACKAGE IS A WORK IN PROGRESS
-
 A replacement for `accounts-ui` designed to work in [Universe](http://unicms.io) ecosystem: [Modules](https://atmospherejs.com/universe/modules), React and Semantic UI.
 
 ## Installation
