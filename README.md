@@ -6,9 +6,7 @@ A replacement for `accounts-ui` designed to work in [Universe](http://unicms.io)
 
     meteor add universe:accounts-ui
 
-- This package assumes that you're using React, but you have to add in on your own, e.g.
-    * `meteor add react`
-    
+- This package assumes that you're using React
 - This package uses Semantic UI styling classes, but you have to add styles on your own, e.g.
     * `meteor add semantic:ui`
     
