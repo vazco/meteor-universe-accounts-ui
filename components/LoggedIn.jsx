@@ -1,5 +1,5 @@
-import i18n from '{universe:i18n}';
-
+import React from 'react';
+import i18n from 'meteor/universe:i18n';
 //instance of translate component in "accounts-ui" namespace
 const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 

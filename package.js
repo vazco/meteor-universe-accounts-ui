@@ -7,12 +7,12 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('1.2.1');
+    api.versionsFrom('1.3');
 
     api.use([
-        'universe:modules@0.6.1',
-        'universe:i18n@1.2.0',
-        'react-meteor-data@0.1.9',
+        'ecmascript',
+        'universe:i18n@1.4.1',
+        'react-meteor-data@0.2.4',
         'service-configuration',
         'accounts-base'
     ]);
@@ -28,19 +28,19 @@ Package.onUse(function (api) {
     ], {weak: true});
 
     api.addFiles([
-        'utils.import.js',
-        'components/ComboBox.import.jsx',
-        'components/ErrorMessages.import.jsx',
-        'components/LoggedIn.import.jsx',
-        'components/LoginBox.import.jsx',
-        'components/LoginForm.import.jsx',
-        'components/OAuthButton.import.jsx',
-        'components/PasswordForm.import.jsx',
-        'components/RegisterBox.import.jsx',
-        'components/RegisterForm.import.jsx',
-        'components/ResetPasswordBox.import.jsx',
+        'utils.js',
+        'components/ComboBox.jsx',
+        'components/ErrorMessages.jsx',
+        'components/LoggedIn.jsx',
+        'components/LoginBox.jsx',
+        'components/LoginForm.jsx',
+        'components/OAuthButton.jsx',
+        'components/PasswordForm.jsx',
+        'components/RegisterBox.jsx',
+        'components/RegisterForm.jsx',
+        'components/ResetPasswordBox.jsx',
         'i18n/en.i18n.json',
         'i18n/ru.i18n.json',
-        'index.import.jsx'
+        'index.jsx'
     ]);
 });

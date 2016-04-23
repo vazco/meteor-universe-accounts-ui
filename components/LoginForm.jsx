@@ -1,13 +1,14 @@
+import React from 'react';
 import utils from '../utils';
-import OAuthButton from './OAuthButton';
-import PasswordForm from './PasswordForm';
-import i18n from '{universe:i18n}';
+import OAuthButton from './OAuthButton.jsx';
+import PasswordForm from './PasswordForm.jsx';
+import i18n from 'meteor/universe:i18n';
 
 //instance of translate component in "accounts-ui" namespace
 const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
-    displayName: 'RegisterForm',
+    displayName: 'LoginForm',
     propTypes: {
         clearErrors: React.PropTypes.func.isRequired,
         onError: React.PropTypes.func.isRequired
@@ -15,7 +16,7 @@ export default React.createClass({
     render () {
         let services = utils.getServiceNames();
         const { clearErrors, onError } = this.props;
-
+        //`Sign in with ${utils.capitalize(service)}`
         return (
             <div className="ui form">
                 <div>
@@ -23,7 +24,7 @@ export default React.createClass({
                         return (
                             <OAuthButton
                                 service={service}
-                                text={`${i18n.__('accounts-ui', 'sign_up_with')} ${utils.capitalize(service)}`}
+                                text={`${i18n.__('accounts-ui', 'sign_in_with')} ${utils.capitalize(service)}`}
                                 key={service}
                                 />
                         );
@@ -31,16 +32,17 @@ export default React.createClass({
                 </div>
 
                 {services.length > 0 && utils.hasPasswordService() ?
-                    <div className="ui horizontal divider"><T>sign_up_with_email</T></div> : ''
+                    <div className="ui horizontal divider"><T>sign_in_with_email</T></div> : ''
                 }
 
                 {utils.hasPasswordService() ?
                     <PasswordForm
-                        type="register"
+                        type="login"
                         onError={ onError }
                         clearErrors={ clearErrors }
                       /> : ''
                 }
+
             </div>
         );
     }

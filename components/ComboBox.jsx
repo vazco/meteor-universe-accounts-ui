@@ -1,11 +1,11 @@
+import React from 'react';
 /*global ReactMeteorData */
-
-import ErrorMessages from './ErrorMessages';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
-import LoggedIn from './LoggedIn';
+import ErrorMessages from './ErrorMessages.jsx';
+import LoginForm from './LoginForm.jsx';
+import RegisterForm from './RegisterForm.jsx';
+import LoggedIn from './LoggedIn.jsx';
 import utils from '../utils';
-import i18n from '{universe:i18n}';
+import i18n from 'meteor/universe:i18n';
 
 //instance of translate component in "accounts-ui" namespace
 const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));

@@ -22,12 +22,12 @@ A replacement for `accounts-ui` designed to work in [Universe](http://unicms.io)
  
 Basic usage could look like:
 
-    import {ComboBox} from '{universe:accounts-ui}';
+    import {ComboBox} from 'meteor/universe:accounts-ui';
     
     Router.route('/login', {
         name: 'login',
         action () {
-            ReactLayout.render(Layout, {
+            mount(Layout, {
                 content: <ComboBox />
             });
         }
