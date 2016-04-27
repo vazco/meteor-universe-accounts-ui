@@ -1,6 +1,6 @@
 Package.describe({
     name: 'universe:accounts-ui',
-    version: '0.3.0',
+    version: '0.3.1',
     summary: 'Accounts UI replacement for Universe using React and Semantic UI',
     documentation: 'README.md',
     git: 'https://github.com/vazco/meteor-universe-accounts-ui'
@@ -41,6 +41,6 @@ Package.onUse(function (api) {
         'components/ResetPasswordBox.jsx',
         'i18n/en.i18n.json',
         'i18n/ru.i18n.json',
-        'index.jsx'
     ]);
+    api.mainModule('index.jsx');
 });
