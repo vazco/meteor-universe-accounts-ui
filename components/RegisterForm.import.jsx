@@ -10,12 +10,13 @@ export default React.createClass({
     displayName: 'RegisterForm',
     propTypes: {
         clearErrors: React.PropTypes.func.isRequired,
-        onError: React.PropTypes.func.isRequired
+        onError: React.PropTypes.func.isRequired,
+        passwordStrengthCheck: React.PropTypes.bool,
+        termsLink: React.PropTypes.string
     },
     render () {
         let services = utils.getServiceNames();
         const { clearErrors, onError } = this.props;
-
         return (
             <div className="ui form">
                 <div>
@@ -39,6 +40,9 @@ export default React.createClass({
                         type="register"
                         onError={ onError }
                         clearErrors={ clearErrors }
+                        passwordStrengthCheck={this.props.passwordStrengthCheck}
+                        termsCheckbox={this.props.termsCheckbox}
+                        termsLink={this.props.termsLink}
                       /> : ''
                 }
             </div>

@@ -27,5 +27,9 @@
   "password": "Password",
   "repeat_password": "Repeat password",
   "reset_password": "Reset password",
-  "send_reset_link": "Send reset link"
+  "send_reset_link": "Send reset link",
+  "terms_accept": "By registering ​you agree to",
+  "terms_conditions": "terms and conditions",
+  "terms_accept_required": "Terms accept required",
+  "password_dont_have": "Password don't have "
 }

@@ -12,7 +12,10 @@ const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 export default React.createClass({
     displayName: 'RegisterBox',
     propTypes: {
-        loginLink: React.PropTypes.string
+        loginLink: React.PropTypes.string,
+        passwordStrengthCheck: React.PropTypes.bool,
+        termsCheckbox: React.PropTypes.bool,
+        termsLink: React.PropTypes.string
     },
     mixins: [ReactMeteorData],
     getMeteorData () {
@@ -48,6 +51,9 @@ export default React.createClass({
                     <RegisterForm
                         onError={ utils.onError.bind(this) }
                         clearErrors={ utils.clearErrors.bind(this) }
+                        passwordStrengthCheck={this.props.passwordStrengthCheck}
+                        termsCheckbox={this.props.termsCheckbox}
+                        termsLink={this.props.termsLink}
                         />
 
                 </div>

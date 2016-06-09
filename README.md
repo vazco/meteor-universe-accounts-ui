@@ -40,6 +40,42 @@ Basic usage could look like:
 - `ComboBox` - both above forms combined into one
 - `ResetPasswordBox` - password reset form
 
+## Examples
+
+    import {LoginBox, RegisterBox, ResetPasswordBox} from '{universe:accounts-ui}';
+    
+    Router.route('/login', {
+        name: 'login',
+        action () {
+            ReactLayout.render(Layout, {
+                content: <LoginBox registerLink='/register' resetLink='/reset_password'/>
+            });
+        }
+    });
+    
+    Router.route('/register', {
+        name: 'register',
+        action () {
+            ReactLayout.render(Layout, {
+                content: <RegisterBox
+                    loginLink='/login'
+                    passwordStrengthCheck={true}
+                    termsCheckbox={true}
+                    termsLink="/terms"
+                />
+            });
+        }
+    });
+    
+    Router.route('/reset_password', {
+        name: 'resetPassword',
+        action () {
+            ReactLayout.render(Layout, {
+                content: <ResetPasswordBox loginLink='/login' registerLink='/register'/>
+            });
+        }
+    });
+
 ## Configuration
 
 No config yet, but will have similar configuration to `accounts-ui`.

@@ -9,12 +9,41 @@ export default React.createClass({
     propTypes: {
         clearErrors: React.PropTypes.func.isRequired,
         onError: React.PropTypes.func.isRequired,
-        type: React.PropTypes.oneOf(['login', 'register']).isRequired
+        type: React.PropTypes.oneOf(['login', 'register']).isRequired,
+        passwordStrengthCheck: React.PropTypes.bool,
+        termsCheckbox: React.PropTypes.bool,
+        termsLink: React.PropTypes.string
     },
     getInitialState () {
         return {
             loading: false
         };
+    },
+    checkPasswordStrength(password){
+        let errors = [];
+        let status = false;
+
+        if(!/[a-z]/.test(password)){
+            errors.push('lowercase letter');
+            status = true;
+        }
+        if(!/[A-Z]/.test(password)){
+            errors.push('uppercase letter');
+            status = true;
+        }
+        if(!/[0-9]/.test(password)){
+            errors.push('number');
+            status = true;
+        }
+        if(/^[a-zA-Z0-9.]*$/.test(password)){
+            errors.push('special character');
+            status = true;
+        }
+        if(password.length < 8){
+            errors.push('at least 8 signs');
+            status = true;
+        }
+        return {status, errors};
     },
     handleSubmit (e) {
         e.preventDefault();
@@ -22,6 +51,7 @@ export default React.createClass({
         const { clearErrors, onError } = this.props;
         var passwordNode = this.refs.password;
         var emailNode = this.refs.email;
+
 
         if (this.props.type === 'login') {
             // log in / sign in
@@ -49,8 +79,23 @@ export default React.createClass({
 
             if (passwordNode.value !== passwordNode2.value) {
                 onError(i18n.__('accounts-ui', 'passwords_dont_match'));
-
                 return;
+            }
+
+            if(this.props.passwordStrengthCheck){
+                let passwordCheck = this.checkPasswordStrength(passwordNode.value);
+                if(passwordCheck.status){
+                    onError(onError(i18n.__('accounts-ui', 'password_dont_have')) + passwordCheck.errors.join(', '));
+                    return
+                }
+            }
+
+            if(this.props.termsCheckbox){
+                let terms = this.refs.terms;
+                if(!terms.checked){
+                    onError(i18n.__('accounts-ui', 'terms_accept_required'));
+                    return;
+                }
             }
 
             this.setState({loading: true});
@@ -67,6 +112,7 @@ export default React.createClass({
                     // this.refs.form.reset();
                 }
             });
+
         }
     },
     render () {
@@ -104,6 +150,14 @@ export default React.createClass({
                         placeholder={ i18n.__('accounts-ui', 'repeat_password') }
                         ref="password2"/>
                 </div>
+                    : ''}
+
+                {isRegistration && this.props.termsCheckbox ?
+                    <div className="required field">
+                        <label className="terms">
+                            <input type="checkbox" ref="terms" value="accept"/>
+                            <T>terms_accept</T> <a href={this.props.termsLink}><T>terms_conditions</T></a></label>
+                    </div>
                     : ''}
 
                 <button type="submit"
