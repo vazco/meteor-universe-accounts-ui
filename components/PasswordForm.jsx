@@ -83,7 +83,7 @@ export default React.createClass({
             if(this.props.passwordStrengthCheck){
                 let passwordCheck = this.checkPasswordStrength(passwordNode.value);
                 if(passwordCheck.status){
-                    onError(onError(i18n.__('accounts-ui', 'password_dont_have')) + passwordCheck.errors.join(', '));
+                    onError(i18n.__('accounts-ui','password_dont_have') + passwordCheck.errors.join(', '));
                     return
                 }
             }
