@@ -40,7 +40,10 @@ export default React.createClass({
                         type="register"
                         onError={ onError }
                         clearErrors={ clearErrors }
-                      /> : ''
+                        passwordStrengthCheck={this.props.passwordStrengthCheck}
+                        termsCheckbox={this.props.termsCheckbox}
+                        termsLink={this.props.termsLink}
+                    /> : ''
                 }
             </div>
         );
