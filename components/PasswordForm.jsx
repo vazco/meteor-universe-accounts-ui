@@ -132,6 +132,22 @@ export default React.createClass({
                 </div>
 
                 <div className="required field">
+                    <label><T>email</T></label>
+                    <input type="email"
+                           placeholder={ i18n.__('accounts-ui', 'email') }
+                           ref="email"
+                    />
+                </div>
+
+                <div className="required field">
+                    <label><T>email</T></label>
+                    <input type="email"
+                           placeholder={ i18n.__('accounts-ui', 'email') }
+                           ref="email"
+                    />
+                </div>
+
+                <div className="required field">
                     <label><T>password</T></label>
                     <input
                         type="password"
