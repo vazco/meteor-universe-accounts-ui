@@ -140,13 +140,18 @@ export default React.createClass({
                 </div>
 
                 {isRegistration ?
-                <div className="required field">
-                    <label><T>repeat_password</T></label>
-                    <input
-                        type="password"
-                        placeholder={ i18n.__('accounts-ui', 'repeat_password') }
-                        ref="password2"/>
-                </div>
+                    <div>
+                        <div className="required field">
+                            <label><T>repeat_password</T></label>
+                            <input
+                                type="password"
+                                placeholder={ i18n.__('accounts-ui', 'repeat_password') }
+                                ref="password2"/>
+                        </div>
+
+                        <label><T>password_requirements</T></label>
+                    </div>
+
                     : ''}
 
                 {isRegistration && this.props.termsCheckbox ?
