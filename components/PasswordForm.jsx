@@ -47,8 +47,11 @@ export default React.createClass({
         e.preventDefault();
 
         const { clearErrors, onError } = this.props;
+        var firstNameNode = this.refs.first_name;
+        var lastNameNode = this.refs.last_name;
         var passwordNode = this.refs.password;
         var emailNode = this.refs.email;
+        var telNode = this.refs.tel;
 
         if (this.props.type === 'login') {
             // log in / sign in
@@ -99,6 +102,11 @@ export default React.createClass({
             this.setState({loading: true});
 
             Accounts.createUser({
+                profile: {
+                    firstName: firstNameNode.value,
+                    lastName: lastNameNode.value,
+                    phones: [{tel: telNode.value}]
+                },
                 email: emailNode.value,
                 password: passwordNode.value
             }, (err) => {
@@ -123,21 +131,33 @@ export default React.createClass({
                   className={'ui large form' + (this.state.loading ? ' loading' : '')}
                   ref="form">
 
-                <div className="required field">
-                    <label><T>email</T></label>
-                    <input type="email"
-                           placeholder={ i18n.__('accounts-ui', 'email') }
-                           ref="email"
-                    />
-                </div>
+                {isRegistration ?
+                    <div>
+                        <div className="required field">
+                            <label><T>first_name</T></label>
+                            <input type="text"
+                                   placeholder={ i18n.__('accounts-ui', 'first_name') }
+                                   ref="first_name"
+                            />
+                        </div>
 
-                <div className="required field">
-                    <label><T>email</T></label>
-                    <input type="email"
-                           placeholder={ i18n.__('accounts-ui', 'email') }
-                           ref="email"
-                    />
-                </div>
+                        <div className="required field">
+                            <label><T>last_name</T></label>
+                            <input type="text"
+                                   placeholder={ i18n.__('accounts-ui', 'last_name') }
+                                   ref="last_name"
+                            />
+                        </div>
+
+                        <div className="required field">
+                            <label><T>tel</T></label>
+                            <input type="tel"
+                                   placeholder={ i18n.__('accounts-ui', 'tel') }
+                                   ref="tel"
+                            />
+                        </div>
+
+                    </div> : ''}
 
                 <div className="required field">
                     <label><T>email</T></label>
