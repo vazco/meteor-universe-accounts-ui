@@ -105,7 +105,7 @@ export default React.createClass({
                 profile: {
                     firstName: firstNameNode.value,
                     lastName: lastNameNode.value,
-                    phones: [{tel: telNode.value}]
+                    phones: [{phone: telNode.value}]
                 },
                 email: emailNode.value,
                 password: passwordNode.value
