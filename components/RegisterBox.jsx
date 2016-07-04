@@ -50,6 +50,9 @@ export default React.createClass({
                     <RegisterForm
                         onError={ utils.onError.bind(this) }
                         clearErrors={ utils.clearErrors.bind(this) }
+                        firstName
+                        lastName
+                        phone
                         passwordStrengthCheck={this.props.passwordStrengthCheck}
                         termsCheckbox={this.props.termsCheckbox}
                         termsLink={this.props.termsLink}

@@ -51,7 +51,7 @@ export default React.createClass({
         var lastNameNode = this.refs.last_name;
         var passwordNode = this.refs.password;
         var emailNode = this.refs.email;
-        var telNode = this.refs.tel;
+        var phoneNode = this.refs.phone;
 
         if (this.props.type === 'login') {
             // log in / sign in
@@ -79,11 +79,38 @@ export default React.createClass({
 
             if (passwordNode.value !== passwordNode2.value) {
                 onError(i18n.__('accounts-ui', 'passwords_dont_match'));
-
                 return;
             }
 
-            if(this.props.passwordStrengthCheck){
+            if(this.props.firstName) {
+                let firstName = firstNameNode.value;
+                if (firstName.length < 1) {
+                    onError(i18n.__('accounts-ui', 'first_name_required'));
+                    return;
+                }
+            }
+
+            if(this.props.lastName) {
+                let lastName = lastNameNode.value;
+                if (lastName.length < 1) {
+                    onError(i18n.__('accounts-ui', 'last_name_required'));
+                    return;
+                }
+            }
+
+            if (this.props.phone) {
+                let phone = phoneNode.value;
+                if (phone.length < 1) {
+                    onError(i18n.__('accounts-ui', 'phone_required'));
+                    return;
+                }
+                else if (!(!isNaN(parseFloat(phone)) && isFinite(phone))) {
+                    onError(i18n.__('accounts-ui', 'phone_numeric_required'));
+                    return;
+                }
+            }
+
+            if (this.props.passwordStrengthCheck) {
                 let passwordCheck = this.checkPasswordStrength(passwordNode.value);
                 if(passwordCheck.status){
                     onError(i18n.__('accounts-ui','password_dont_have') + passwordCheck.errors.join(', '));
@@ -91,7 +118,7 @@ export default React.createClass({
                 }
             }
 
-            if(this.props.termsCheckbox){
+            if (this.props.termsCheckbox) {
                 let terms = this.refs.terms;
                 if(!terms.checked){
                     onError(i18n.__('accounts-ui', 'terms_accept_required'));
@@ -105,7 +132,7 @@ export default React.createClass({
                 profile: {
                     firstName: firstNameNode.value,
                     lastName: lastNameNode.value,
-                    phones: [{phone: telNode.value}]
+                    phones: [{phone: phoneNode.value}]
                 },
                 email: emailNode.value,
                 password: passwordNode.value
@@ -132,7 +159,7 @@ export default React.createClass({
                   ref="form">
 
                 {isRegistration ?
-                    <div>
+                    <div className="field">
                         <div className="required field">
                             <label><T>first_name</T></label>
                             <input type="text"
@@ -153,7 +180,7 @@ export default React.createClass({
                             <label><T>tel</T></label>
                             <input type="tel"
                                    placeholder={ i18n.__('accounts-ui', 'tel') }
-                                   ref="tel"
+                                   ref="phone"
                             />
                         </div>
 
