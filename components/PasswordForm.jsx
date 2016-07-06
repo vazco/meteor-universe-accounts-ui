@@ -51,7 +51,6 @@ export default React.createClass({
         var lastNameNode = this.refs.last_name;
         var passwordNode = this.refs.password;
         var emailNode = this.refs.email;
-        var phoneNode = this.refs.phone;
 
         if (this.props.type === 'login') {
             // log in / sign in
@@ -98,18 +97,6 @@ export default React.createClass({
                 }
             }
 
-            if (this.props.phone) {
-                let phone = phoneNode.value;
-                if (phone.length < 1) {
-                    onError(i18n.__('accounts-ui', 'phone_required'));
-                    return;
-                }
-                else if (!(!isNaN(parseFloat(phone)) && isFinite(phone))) {
-                    onError(i18n.__('accounts-ui', 'phone_numeric_required'));
-                    return;
-                }
-            }
-
             if (this.props.passwordStrengthCheck) {
                 let passwordCheck = this.checkPasswordStrength(passwordNode.value);
                 if(passwordCheck.status){
@@ -131,8 +118,7 @@ export default React.createClass({
             Accounts.createUser({
                 profile: {
                     firstName: firstNameNode.value,
-                    lastName: lastNameNode.value,
-                    phones: [{phone: phoneNode.value}]
+                    lastName: lastNameNode.value
                 },
                 email: emailNode.value,
                 password: passwordNode.value
@@ -142,7 +128,6 @@ export default React.createClass({
                     onError(err.reason || i18n.__('accounts-ui', 'unknown_error'));
                 } else {
                     clearErrors();
-                    // this.refs.form.reset();
                 }
             });
         }
@@ -173,14 +158,6 @@ export default React.createClass({
                             <input type="text"
                                    placeholder={ i18n.__('accounts-ui', 'last_name') }
                                    ref="last_name"
-                            />
-                        </div>
-
-                        <div className="required field">
-                            <label><T>tel</T></label>
-                            <input type="tel"
-                                   placeholder={ i18n.__('accounts-ui', 'tel') }
-                                   ref="phone"
                             />
                         </div>
 
