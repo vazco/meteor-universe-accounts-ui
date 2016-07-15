@@ -198,7 +198,7 @@ export default React.createClass({
                     <div className="required field">
                         <label className="terms">
                             <input type="checkbox" ref="terms" value="accept"/>
-                            <T>terms_accept</T> <a href={this.props.termsLink}><T>terms_conditions</T></a></label>
+                            <T>terms_accept</T> <a href={this.props.termsLink} target="_blank"><T>terms_conditions</T></a></label>
                     </div>
                     : ''}
 
