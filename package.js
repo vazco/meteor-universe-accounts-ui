@@ -41,7 +41,7 @@ Package.onUse(function (api) {
         'components/ResetPasswordBox.jsx',
         'i18n/de.i18n.json',
         'i18n/en.i18n.json',
-        'i18n/ru.i18n.json',
+        'i18n/ru.i18n.json'
     ]);
     api.mainModule('index.jsx');
 });

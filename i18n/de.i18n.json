@@ -9,7 +9,7 @@
   "email": "Email",
   "email_sent": "Email gesendet",
   "first_name": "Vorname",
-  "forgot_your_password": "Passwort vergessen",
+  "forgot_your_password": "Passwort vergessen? ",
   "first_name_required" : "Bitte Vorname angeben",
   "invalid_usename_or_password": "Ungültiges Passwort oder Username",
   "last_name": "Nachname",
