@@ -39,6 +39,7 @@ Package.onUse(function (api) {
         'components/RegisterBox.jsx',
         'components/RegisterForm.jsx',
         'components/ResetPasswordBox.jsx',
+        'i18n/de.i18n.json',
         'i18n/en.i18n.json',
         'i18n/ru.i18n.json',
     ]);
