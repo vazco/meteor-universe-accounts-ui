@@ -39,5 +39,11 @@
   "unknown_error": "Unknown error",
   "you_need_to_provide_email": "You need to provide Email",
   "your_email": "Your Email",
-  "youre_logged_in": "You're logged in"
+  "youre_logged_in": "You're logged in",
+  "password_changed": "Password changed",
+  "try_login": "Try to login now!",
+  "change_password": "Set your new password",
+  "set_password": "Set password",
+  "token_expired_title": "You token has expired.",
+  "token_expired_text": "You token has expired. Please try again."
 }
