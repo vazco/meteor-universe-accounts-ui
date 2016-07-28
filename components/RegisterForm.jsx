@@ -46,6 +46,7 @@ export default React.createClass({
                         passwordStrengthCheck={this.props.passwordStrengthCheck}
                         termsCheckbox={this.props.termsCheckbox}
                         termsLink={this.props.termsLink}
+                        prefilledData={this.props.prefilledData}
                     /> : ''
                 }
             </div>
