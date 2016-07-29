@@ -149,6 +149,7 @@ export default React.createClass({
                             <label><T>first_name</T></label>
                             <input type="text"
                                    placeholder={ i18n.__('accounts-ui', 'first_name') }
+                                   value={FlowRouter.getQueryParam('fn')}
                                    ref="first_name"
                             />
                         </div>
@@ -157,6 +158,7 @@ export default React.createClass({
                             <label><T>last_name</T></label>
                             <input type="text"
                                    placeholder={ i18n.__('accounts-ui', 'last_name') }
+                                   value={FlowRouter.getQueryParam('ln')}
                                    ref="last_name"
                             />
                         </div>
@@ -167,6 +169,7 @@ export default React.createClass({
                     <label><T>email</T></label>
                     <input type="email"
                            placeholder={ i18n.__('accounts-ui', 'email') }
+                           value={FlowRouter.getQueryParam('em')}
                            ref="email"
                     />
                 </div>

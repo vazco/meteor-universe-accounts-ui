@@ -42,7 +42,7 @@ export default React.createClass({
                 <div className="ui large top attached segment">
 
                     { this.renderErrorMessages() }
-                    
+
                     <h2 className="ui center aligned dividing header">
                         <T>sign_up</T>
                     </h2>
@@ -56,7 +56,7 @@ export default React.createClass({
                         passwordStrengthCheck={this.props.passwordStrengthCheck}
                         termsCheckbox={this.props.termsCheckbox}
                         termsLink={this.props.termsLink}
-                    />
+                        />
 
                 </div>
 
