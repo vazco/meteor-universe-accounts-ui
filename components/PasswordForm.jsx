@@ -138,8 +138,6 @@ export default React.createClass({
         }
         let isRegistration = (this.props.type === 'register');
 
-        const prefilledData = this.props.prefilledData;
-
         return (
             <form onSubmit={this.handleSubmit}
                   className={'ui large form' + (this.state.loading ? ' loading' : '')}
@@ -150,8 +148,8 @@ export default React.createClass({
                         <div className="required field">
                             <label><T>first_name</T></label>
                             <input type="text"
-                                   value={prefilledData && prefilledData.firstName}
                                    placeholder={ i18n.__('accounts-ui', 'first_name') }
+                                   value={FlowRouter.getQueryParam('fn')}
                                    ref="first_name"
                             />
                         </div>
@@ -159,8 +157,8 @@ export default React.createClass({
                         <div className="required field">
                             <label><T>last_name</T></label>
                             <input type="text"
-                                   value={prefilledData && prefilledData.lastName}
                                    placeholder={ i18n.__('accounts-ui', 'last_name') }
+                                   value={FlowRouter.getQueryParam('ln')}
                                    ref="last_name"
                             />
                         </div>
@@ -170,8 +168,8 @@ export default React.createClass({
                 <div className="required field">
                     <label><T>email</T></label>
                     <input type="email"
-                           value={prefilledData && prefilledData.emails[0].address}
                            placeholder={ i18n.__('accounts-ui', 'email') }
+                           value={FlowRouter.getQueryParam('em')}
                            ref="email"
                     />
                 </div>

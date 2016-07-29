@@ -40,14 +40,7 @@ export default React.createClass({
                         type="register"
                         onError={ onError }
                         clearErrors={ clearErrors }
-                        firstName={this.props.firstName}
-                        lastName={this.props.lastName}
-                        phone={this.props.phone}
-                        passwordStrengthCheck={this.props.passwordStrengthCheck}
-                        termsCheckbox={this.props.termsCheckbox}
-                        termsLink={this.props.termsLink}
-                        prefilledData={this.props.prefilledData}
-                    /> : ''
+                      /> : ''
                 }
             </div>
         );

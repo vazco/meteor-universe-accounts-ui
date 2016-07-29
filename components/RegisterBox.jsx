@@ -41,8 +41,6 @@ export default React.createClass({
             <div>
                 <div className="ui large top attached segment">
 
-                    { this.renderErrorMessages() }
-
                     <h2 className="ui center aligned dividing header">
                         <T>sign_up</T>
                     </h2>
@@ -50,14 +48,7 @@ export default React.createClass({
                     <RegisterForm
                         onError={ utils.onError.bind(this) }
                         clearErrors={ utils.clearErrors.bind(this) }
-                        firstName
-                        lastName
-                        phone
-                        prefilledData={this.props.prefilledData}
-                        passwordStrengthCheck={this.props.passwordStrengthCheck}
-                        termsCheckbox={this.props.termsCheckbox}
-                        termsLink={this.props.termsLink}
-                    />
+                        />
 
                 </div>
 
@@ -68,6 +59,8 @@ export default React.createClass({
                         <a href={this.props.loginLink}>&nbsp;<T>click_to_login</T></a>
                     </div>
                     : ''}
+
+                { this.renderErrorMessages() }
             </div>
         );
     }
