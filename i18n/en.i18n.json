@@ -20,12 +20,15 @@
   "unknown_error": "Unknown error",
   "passwords_dont_match": "Passwords don't match",
   "you_need_to_provide_email": "You need to provide Email",
+  "you_need_to_provide_password": "You need to provide Password",
   "email": "Email",
   "your_email": "Your Email",
+  "your_new_password": "Your new password",
   "email_sent": "Email sent",
   "check_your_inbox_for_further_instructions": "Check your inbox for further instructions",
   "password": "Password",
   "repeat_password": "Repeat password",
   "reset_password": "Reset password",
+  "save": "Save",
   "send_reset_link": "Send reset link"
 }

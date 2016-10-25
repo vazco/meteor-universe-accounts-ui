@@ -1,6 +1,6 @@
 Package.describe({
     name: 'universe:accounts-ui',
-    version: '0.3.1',
+    version: '0.4.0',
     summary: 'Accounts UI replacement for Universe using React and Semantic UI',
     documentation: 'README.md',
     git: 'https://github.com/vazco/meteor-universe-accounts-ui'
@@ -30,6 +30,7 @@ Package.onUse(function (api) {
     api.addFiles([
         'utils.js',
         'components/ComboBox.jsx',
+        'components/EnrollmentBox.jsx',
         'components/ErrorMessages.jsx',
         'components/LoggedIn.jsx',
         'components/LoginBox.jsx',

@@ -1,23 +1,15 @@
 import React from 'react';
-/*global ReactMeteorData */
 import ErrorMessages from './ErrorMessages.jsx';
-import LoggedIn from './LoggedIn.jsx';
 import i18n from 'meteor/universe:i18n';
-import {Meteor} from 'meteor/meteor';
-
+import {Accounts} from 'meteor/accounts-base';
 //instance of translate component in "accounts-ui" namespace
 const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 export default React.createClass({
-    displayName: 'ResetPasswordBox',
-    mixins: [ReactMeteorData],
+    displayName: 'EnrollmentBox',
     propTypes: {
-        registerLink: React.PropTypes.string
-    },
-    getMeteorData () {
-        return {
-            user: Meteor.user()
-        };
+        token: React.PropTypes.string,
+        onComplete: React.PropTypes.func
     },
     getInitialState () {
         return {
@@ -29,10 +21,10 @@ export default React.createClass({
     handleSubmit (e) {
         e.preventDefault();
 
-        let email = this.refs.email.value;
+        let password = this.refs.password.value;
 
-        if (!email) {
-            this.setState({error: i18n.__('accounts-ui', 'you_need_to_provide_email')});
+        if (!password) {
+            this.setState({error: i18n.__('accounts-ui', 'you_need_to_provide_password')});
             return;
         }
 
@@ -41,7 +33,7 @@ export default React.createClass({
             error: null
         });
 
-        Accounts.forgotPassword({email}, err => {
+        Accounts.resetPassword(this.props.token, password, err => {
             if (err) {
                 this.setState({
                     error: err.reason || err.message,
@@ -55,6 +47,10 @@ export default React.createClass({
                 loading: false,
                 emailSent: true
             });
+
+            if (this.props.onComplete) {
+                this.props.onComplete();
+            }
         });
     },
     renderErrorMessages() {
@@ -65,10 +61,6 @@ export default React.createClass({
         }
     },
     render () {
-        if (this.data.user) {
-            return <LoggedIn />;
-        }
-
         if (this.state.emailSent) {
             return (
                 <div className="ui large top attached segment">
@@ -89,30 +81,22 @@ export default React.createClass({
                           ref="form">
 
                         <div className="required field">
-                            <label><T>your_email</T></label>
+                            <label><T>your_new_password</T></label>
 
                             <div className="ui fluid input">
-                                <input type="email"
-                                       placeholder={i18n.__('accounts-ui', 'email')}
-                                       ref="email"
+                                <input type="password"
+                                       placeholder={i18n.__('accounts-ui', 'password')}
+                                       ref="password"
                                     />
                             </div>
                         </div>
 
                         <button type="submit"
                                 className="ui fluid large primary button">
-                            <T>send_reset_link</T>
+                            <T>save</T>
                         </button>
                     </form>
                 </div>
-
-                {this.props.registerLink ?
-                    <div className="ui large bottom attached info icon message">
-                        <i className="user icon"></i>
-                        <T>dont_have_an_account</T>
-                        <a href={this.props.registerLink}>&nbsp;<T>register_here</T></a>
-                    </div>
-                    : ''}
 
                 { this.renderErrorMessages() }
             </div>
