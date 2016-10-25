@@ -20,12 +20,15 @@
   "unknown_error": "Неизвестная ошибка",
   "passwords_dont_match": "Пароли не совпадают",
   "you_need_to_provide_email": "Вы должны указать Email",
+  "you_need_to_provide_password": "You need to provide Password",
   "email": "Email",
   "your_email": "Ваш Email",
+  "your_new_password": "Your new password",
   "email_sent": "Письмо отправлено",
   "check_your_inbox_for_further_instructions": "Проверьте ваш почтовый ящик для получения дальнейших инструкций",
   "password": "Пароль",
   "repeat_password": "Повторите пароль",
   "reset_password": "Сброс пароля",
+  "save": "Save",
   "send_reset_link": "Отправить ссылку для сброса"
 }
