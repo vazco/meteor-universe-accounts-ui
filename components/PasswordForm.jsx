@@ -31,10 +31,10 @@ class PasswordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const { clearErrors, onError } = this.props;
+    const { clearErrors, onError, type } = this.props;
     const { password, email } = this.state;
 
-    if (this.props.type === 'login') {
+    if (type === 'login') {
       // log in / sign in
 
       this.setState({ loading: true });
