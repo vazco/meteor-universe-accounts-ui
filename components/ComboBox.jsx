@@ -78,8 +78,8 @@ class RegisterBox extends React.Component {
 RegisterBox.propTypes = {
   resetLink: PropTypes.string,
   user: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-  }).isRequired,
+    _id: PropTypes.string,
+  }),
 };
 
 export default withTracker(() => ({

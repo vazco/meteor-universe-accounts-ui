@@ -135,8 +135,8 @@ class ResetPasswordBox extends React.Component {
 ResetPasswordBox.propTypes = {
   registerLink: PropTypes.string,
   user: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-  }).isRequired,
+    _id: PropTypes.string,
+  }),
 };
 
 export default withTracker(() => ({

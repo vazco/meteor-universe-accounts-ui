@@ -85,8 +85,8 @@ LoginBox.propTypes = {
   registerLink: PropTypes.string,
   resetLink: PropTypes.string,
   user: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-  }).isRequired,
+    _id: PropTypes.string,
+  }),
 };
 
 export default withTracker(() => ({
