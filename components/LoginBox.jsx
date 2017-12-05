@@ -13,7 +13,7 @@ const T = i18n.createComponent(i18n.createTranslator('accounts-ui'));
 
 class LoginBox extends React.Component {
   static renderErrorMessages() {
-    if (this.state.errors) {
+    if (this.state.errors === []) {
       return <ErrorMessages errors={this.state.errors} />;
     }
     return <div />;
