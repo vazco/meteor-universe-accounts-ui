@@ -1,6 +1,4 @@
 
-## Abandonware
-
 # Universe Accounts UI
 
 A replacement for `accounts-ui` designed to work in [Universe](http://unicms.io) ecosystem: [Modules](https://atmospherejs.com/universe/modules), React and Semantic UI.
