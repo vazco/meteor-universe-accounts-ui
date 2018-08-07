@@ -70,7 +70,8 @@ Accounts.onEnrollmentLink((token, done) => {
             content: <EnrollmentBox token={token} onComplete={onComplete} />
         });
     }, 100);
-});```
+});
+```
 
 ### License
 
