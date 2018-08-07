@@ -72,7 +72,7 @@ Accounts.onEnrollmentLink((token, done) => {
     }, 100);
 });```
 
-## License
+### License
 
 <img src="https://vazco.eu/banner.png" align="right">
 
