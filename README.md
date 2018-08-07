@@ -1,5 +1,9 @@
 
-# Universe Accounts UI
+<h1 align="center">
+    <a href="https://github.com/vazco">vazco</a>/Universe Accounts UI
+</h1>
+
+&nbsp;
 
 A replacement for `accounts-ui` designed to work in [Universe](http://vazco.eu) ecosystem: [Modules](https://atmospherejs.com/universe/modules), React and Semantic UI.
 
@@ -67,3 +71,9 @@ Accounts.onEnrollmentLink((token, done) => {
         });
     }, 100);
 });```
+
+## License
+
+<img src="https://vazco.eu/banner.png" align="right">
+
+**Like every package maintained by [Vazco](https://vazco.eu/), Universe Accounts UI is [MIT licensed](https://github.com/vazco/uniforms/blob/master/LICENSE).**
